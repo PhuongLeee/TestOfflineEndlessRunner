@@ -9,6 +9,7 @@ public class SettingPopup : MonoBehaviour
     public Slider masterSlider;
     public Slider musicSlider;
     public Slider masterSFXSlider;
+    public Animator animator;
 
     public LoadoutState loadoutState;
     public DataDeleteConfirmation confirmationPopup;
@@ -21,6 +22,7 @@ public class SettingPopup : MonoBehaviour
     protected const string k_MasterVolumeFloatName = "MasterVolume";
     protected const string k_MusicVolumeFloatName = "MusicVolume";
     protected const string k_MasterSFXVolumeFloatName = "MasterSFXVolume";
+    protected const string closeAnimState = "CloseSettingPopup";
     
     public void Open()
     {
@@ -31,6 +33,12 @@ public class SettingPopup : MonoBehaviour
     public void Close()
     {
 		PlayerData.instance.Save ();
+       // gameObject.SetActive(false);
+        animator.Play(closeAnimState);
+     //   Invoke("Hide", 1);
+    }
+
+    public void Hide() {
         gameObject.SetActive(false);
     }
 

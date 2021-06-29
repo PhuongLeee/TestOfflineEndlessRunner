@@ -3,6 +3,8 @@
 public class DataDeleteConfirmation : MonoBehaviour
 {
     protected LoadoutState m_LoadoutState;
+    public Animator animator;
+    protected const string closeAnimState = "SettingConfirmClose";
 
     public void Open(LoadoutState owner)
     {
@@ -12,6 +14,11 @@ public class DataDeleteConfirmation : MonoBehaviour
 
     public void Close()
     {
+        animator.Play(closeAnimState);
+    //    gameObject.SetActive(false);
+    }
+
+    public void Hide() {
         gameObject.SetActive(false);
     }
 
