@@ -54,7 +54,11 @@ public class ShopItemList : ShopList
 
                     itm.countText.gameObject.SetActive(true);
 
-                    itm.buyButton.onClick.AddListener(delegate() { Buy(c); });
+                    itm.buyButton.onClick.AddListener(delegate() { 
+                        Buy(c);
+                        if (itm.buyParticle != null) itm.buyParticle.Play();
+                        Debug.Log("buySS");
+                    });
                     m_RefreshCallback += delegate() { RefreshButton(itm, c); };
                     RefreshButton(itm, c);
                 };

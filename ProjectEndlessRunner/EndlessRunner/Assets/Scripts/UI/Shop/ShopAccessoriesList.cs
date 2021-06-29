@@ -94,6 +94,7 @@ public class ShopAccessoriesList : ShopList
 		    itm.buyButton.onClick.AddListener(delegate()
 		    {
 			    Buy(compoundName, accessory.cost, accessory.premiumCost);
+         
 		    });
 
 		    m_RefreshCallback += delegate() { RefreshButton(itm, accessory, compoundName); };
